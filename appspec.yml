@@ -1,0 +1,13 @@
+version: 0.0
+os: linux
+files:
+  - source: ./teacher-0.0.1-SNAPSHOT.jar
+    destination: /tmp
+hooks:
+  BeforeInstall:
+    - location: install_dependencies.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: startapp.sh
+      runas: root
